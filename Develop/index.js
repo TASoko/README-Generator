@@ -9,7 +9,7 @@ inquirer
   .prompt([
     {
       type: 'input',
-      message: 'What is the title of your application',
+      message: 'What is the title of your application.',
       name: 'title',
     },
     {
@@ -29,13 +29,38 @@ inquirer
       },
       {
         type: 'input',
+        message: 'Please provide a link to your deployed application.',
+        name: 'deployed',
+      },
+      {
+        type: 'input',
+        message: 'Add the link to your tests.',
+        name: 'tests',
+      },
+      {
+        type: 'input',
         message: 'Who contributed to the development of application?',
         name: 'contribution',
       },
       {
         type: 'input',
-        message: 'Explain the installation process.',
+        message: 'Please add your GitHub username.',
+        name: 'username',
+      },
+      {
+        type: 'input',
+        message: 'Please add a link to your GitHub profile.',
+        name: 'profile',
+      },
+      {
+        type: 'input',
+        message: 'Please provide your email address.',
         name: 'installation',
+      },
+      {
+        type: 'input',
+        message: 'Please add a license for your application.',
+        name: 'license',
       },
   ])
   .then((response) =>
