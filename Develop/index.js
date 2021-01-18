@@ -11,12 +11,13 @@ const generateMD = (data) =>
 `# ${data.title} 
 ### ${data.description}
 ## Table of Contents
-    ### 1. Installation
-    ### 2. Usage
-    ### 3. License
-    ### 4. Contibuting
-    ### 5. Tests
-    ### 6. Questions
+    1. Installation
+    2. Usage
+        * Deployed Link
+    3. License
+    4. Contibuting
+    5. Tests
+    6. Questions
 
 
 ## Installation
@@ -24,20 +25,26 @@ const generateMD = (data) =>
 
 ## Usage
 ### ${data.usage}
-### ${data.deployed}
+### [Deloyed Link](${data.deployed})
 
 ## License
 ### ${data.license}
 
 ## Contibuting
-### ${data.contribution}
+    1.
+        ### ${data.contribution-name1}
+        ### [Contributor 1 Profile](${data.contributorGH1})
+    2.
+        ### ${data.contribution-name2}
+        ### [Contributor 1 Profile](${data.contributorGH2})
 
 ## Tests
-### ${data.tests}
+### [Tests] (${data.tests})
+
 
 ## Questions
 ### ${data.username}
-### ${data.profile}
+### [GitHub](${data.profile} "GitHub Profile")
 ### ${data.email}` ;
 
 // TODO: Create an array of questions for user input
@@ -76,8 +83,23 @@ inquirer
       },
       {
         type: 'input',
-        message: 'Who contributed to the development of application?',
-        name: 'contribution',
+        message: 'Who contributed to the development of application? Full Name',
+        name: 'contribution-name1',
+      },
+      {
+        type: 'input',
+        message: 'Contributors GitHub Profile',
+        name: 'contributorGH1',
+      },
+      {
+        type: 'input',
+        message: 'Who contributed to the development of application? Full Name',
+        name: 'contribution-name2',
+      },
+      {
+        type: 'input',
+        message: 'Contributors GitHub Profile',
+        name: 'contributorGH2',
       },
       {
         type: 'input',
