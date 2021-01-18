@@ -11,13 +11,13 @@ const generateMD = (data) =>
 `# ${data.title} 
 ### ${data.description}
 ## Table of Contents
-    1. Installation
-    2. Usage
+    1. [Installation](#Installation)
+    2. [Usage](#Usage)
         * Deployed Link
-    3. License
-    4. Contibuting
-    5. Tests
-    6. Questions
+    3. [License](#License)
+    4. [Contributing](#Contributing)
+    5. [Tests](#Tests)
+    6. [Questions](#Questions)
 
 
 ## Installation
@@ -30,13 +30,13 @@ const generateMD = (data) =>
 ## License
 ### ${data.license}
 
-## Contibuting
+## Contributing
     1.
-        ### ${data.contributionname1}
-        ### [Contributor 1 Profile](${data.contributorGH1})
+        * ${data.contributionname1}
+        * [Contributor 1 Profile](${data.contributorGH1})
     2.
-        ### ${data.contributionname2}
-        ### [Contributor 1 Profile](${data.contributorGH2})
+        * ${data.contributionname2}
+        * [Contributor 1 Profile](${data.contributorGH2})
 
 ## Tests
 ### [Tests] (${data.tests})
