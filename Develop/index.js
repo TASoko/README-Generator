@@ -9,11 +9,37 @@ const asyncWrite = util.promisify(fs.writeFile);
 
 const generateMD = (data) =>
 `# ${data.title} 
-## ${data.description}
+### ${data.description}
+## Table of Contents
+    ### 1. Installation
+    ### 2. Usage
+    ### 3. License
+    ### 4. Contibuting
+    ### 5. Tests
+    ### 6. Questions
+
+
+## Installation
 ### ${data.installation}
-#### ${data.usage}
-##### ${data.deployed}
-###### ${data.tests}` ;
+
+## Usage
+### ${data.usage}
+### ${data.deployed}
+
+## License
+### ${data.license}
+
+## Contibuting
+### ${data.contribution}
+
+## Tests
+### ${data.tests}
+
+## Questions
+### ${data.username}
+### ${data.profile}
+### ${data.email}` ;
+
 // TODO: Create an array of questions for user input
 // const questions = [];
 inquirer
@@ -66,7 +92,7 @@ inquirer
       {
         type: 'input',
         message: 'Please provide your email address.',
-        name: 'installation',
+        name: 'email',
       },
       {
         type: 'input',
