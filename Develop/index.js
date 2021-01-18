@@ -11,13 +11,13 @@ const generateMD = (data) =>
 `# ${data.title} 
 ### ${data.description}
 ## Table of Contents
-    1. [Installation](#Installation)
-    2. [Usage](#Usage)
+    1. [Installation](#installation)
+    2. [Usage](#usage)
         * Deployed Link
-    3. [License](#License)
-    4. [Contributing](#Contributing)
-    5. [Tests](#Tests)
-    6. [Questions](#Questions)
+    3. [License](#license)
+    4. [Contributing](#contributing)
+    5. [Tests](#tests)
+    6. [Questions](#questions)
 
 
 ## Installation
