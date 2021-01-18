@@ -32,10 +32,10 @@ const generateMD = (data) =>
 
 ## Contibuting
     1.
-        ### ${data.contribution-name1}
+        ### ${data.contributionname1}
         ### [Contributor 1 Profile](${data.contributorGH1})
     2.
-        ### ${data.contribution-name2}
+        ### ${data.contributionname2}
         ### [Contributor 1 Profile](${data.contributorGH2})
 
 ## Tests
@@ -84,7 +84,7 @@ inquirer
       {
         type: 'input',
         message: 'Who contributed to the development of application? Full Name',
-        name: 'contribution-name1',
+        name: 'contributionname1',
       },
       {
         type: 'input',
@@ -94,7 +94,7 @@ inquirer
       {
         type: 'input',
         message: 'Who contributed to the development of application? Full Name',
-        name: 'contribution-name2',
+        name: 'contributionname2',
       },
       {
         type: 'input',
