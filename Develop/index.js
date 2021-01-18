@@ -1,10 +1,10 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
-const badmath = require('badmath');
+// const badmath = require('badmath');
 
 // TODO: Create an array of questions for user input
-const questions = [];
+// const questions = [];
 inquirer
   .prompt([
     {
@@ -63,17 +63,25 @@ inquirer
         name: 'license',
       },
   ])
-  .then((response) =>
-    response.confirm === response.password
-      ? console.log('Success!')
-      : console.log('You forgot your password already?!')
+  .then((data) => {
+  const filename = `${data.title}.md`;
+
+  fs.writeFile(filename, JSON.stringify(data, null, '\t'), (err) =>
+    err ? console.log(err) : console.log('Success!')
   );
+});
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
 
-// TODO: Create a function to initialize app
-function init() {}
+// // TODO: Create a function to write README file
+// function writeToFile(fileName, data) {
+//     const fileName = `${data.title}.md`;
+//     fs.writeFile(fileName, data), (err) =>()
+//     );
 
-// Function call to initialize app
-init();
+// }
+
+// // TODO: Create a function to initialize app
+// function init() {}
+
+// // Function call to initialize app
+// init();
