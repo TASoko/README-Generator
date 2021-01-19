@@ -1,23 +1,44 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
-// const generateMarkdown = require('./utils/generateMarkdown');
+
 const util = require('util');
 const asyncWrite = util.promisify(fs.writeFile);
 
 // const badmath = require('badmath');
 
-const generateMD = (data) =>
-`# ${data.title} 
+
+
+const generateMD = (data) => 
+//   let licenseChoice = '';
+// switch (data.license){
+//   case "IBM":
+//     licenseChoice = '[![License: IPL 1.0](https://img.shields.io/badge/License-IPL%201.0-blue.svg)](https://opensource.org/licenses/IPL-1.0)'
+//   break;
+//   case "MIT":
+//     licenseChoice = '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)'
+//   break;
+//   case "Mozilla":
+//     licenseChoice = '[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)'
+//   break;
+//   case "Open Data Commons":
+//     licenseChoice = '[![License: Open Data Commons Attribution](https://img.shields.io/badge/License-ODC_BY-brightgreen.svg)](https://opendatacommons.org/licenses/by/)'
+//   break;
+//   case 'None':
+//     licenseChoice = ''
+//   break;
+// }
+
+
+`# ${data.title} ${licenseChoice}
 ### ${data.description}
 ## Table of Contents
-    1. [Installation](#installation)
-    2. [Usage](#usage)
-        * Deployed Link
-    3. [License](#license)
-    4. [Contributing](#contributing)
-    5. [Tests](#tests)
-    6. [Questions](#questions)
+  [Installation](#installation)
+  [Usage](#usage)
+  [License](#license)
+  [Contributing](#contributing)
+  [Tests](#tests)
+  [Questions](#questions)
 
 
 ## Installation
@@ -47,6 +68,8 @@ const generateMD = (data) =>
 ### [GitHub](${data.profile} "GitHub Profile")
 ### ${data.email}` ;
 
+
+// }
 // TODO: Create an array of questions for user input
 // const questions = [];
 inquirer
@@ -117,9 +140,10 @@ inquirer
         name: 'email',
       },
       {
-        type: 'input',
+        type: 'list',
         message: 'Please add a license for your application.',
         name: 'license',
+        choices: ['IBM', 'MIT','Mozilla', 'Open Data Commons', 'None'],
       },
   ])
   .then((data) => {
@@ -127,11 +151,11 @@ inquirer
 //       fs.writeFile(fileName, JSON.stringify(data, null, '\t'), (err) =>
 //     err ? console.log(err) : console.log('Readme complete')
 //   );
-  asyncWrite(fileName, generateMD(data), (err) =>
-  err ? console.log(err) : console.log('Success!')
-  )
-
-});
+    asyncWrite(fileName, generateMD(data), (err) =>
+      err ? console.log(err) : console.log('Success!')
+      )
+  })
+  // .then (() => {console.log('Success!')}).catch ((err)=> {console.log(err)});
 
 
 // // TODO: Create a function to write README file
