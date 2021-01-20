@@ -8,29 +8,31 @@ const asyncWrite = util.promisify(fs.writeFile);
 // const badmath = require('badmath');
 
 
+ 
 
-const generateMD = (data) => 
-//   let licenseChoice = '';
-// switch (data.license){
-//   case "IBM":
-//     licenseChoice = '[![License: IPL 1.0](https://img.shields.io/badge/License-IPL%201.0-blue.svg)](https://opensource.org/licenses/IPL-1.0)'
-//   break;
-//   case "MIT":
-//     licenseChoice = '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)'
-//   break;
-//   case "Mozilla":
-//     licenseChoice = '[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)'
-//   break;
-//   case "Open Data Commons":
-//     licenseChoice = '[![License: Open Data Commons Attribution](https://img.shields.io/badge/License-ODC_BY-brightgreen.svg)](https://opendatacommons.org/licenses/by/)'
-//   break;
-//   case 'None':
-//     licenseChoice = ''
-//   break;
-// }
+const generateMD = (data) => {
+  let licenseChoice = '';
+switch (data.license){
+  case "IBM":
+    licenseChoice = '[![License: IPL 1.0](https://img.shields.io/badge/License-IPL%201.0-blue.svg)](https://opensource.org/licenses/IPL-1.0)'
+  break;
+  case "MIT":
+   licenseChoice = '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)'
+  break;
+  case "Mozilla":
+    licenseChoice = '[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)'
+  break;
+  case "Open Data Commons":
+    licenseChoice = '[![License: Open Data Commons Attribution](https://img.shields.io/badge/License-ODC_BY-brightgreen.svg)](https://opendatacommons.org/licenses/by/)'
+  break;
+  case 'None':
+    licenseChoice = ''
+  break;
+}
 
 
-`# ${data.title} ${licenseChoice}
+const output = `
+# ${data.title} ${licenseChoice}
 ### ${data.description}
 ## Table of Contents
   [Installation](#installation)
@@ -67,7 +69,9 @@ const generateMD = (data) =>
 ### ${data.username}
 ### [GitHub](${data.profile} "GitHub Profile")
 ### ${data.email}` ;
-
+console.log(output)
+return output;
+}
 
 // }
 // TODO: Create an array of questions for user input
@@ -148,10 +152,14 @@ inquirer
   ])
   .then((data) => {
   const fileName = `${data.title}.md`;
+
+  const content = generateMD(data)
+
+  console.log(content)
 //       fs.writeFile(fileName, JSON.stringify(data, null, '\t'), (err) =>
 //     err ? console.log(err) : console.log('Readme complete')
 //   );
-    asyncWrite(fileName, generateMD(data), (err) =>
+    asyncWrite(fileName, (content), (err) =>
       err ? console.log(err) : console.log('Success!')
       )
   })
