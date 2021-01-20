@@ -1,16 +1,16 @@
-// TODO: Include packages needed for this application
+//Included packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
 
 const util = require('util');
 const asyncWrite = util.promisify(fs.writeFile);
 
-// const badmath = require('badmath');
 
 
  
-
+//Function needed to run the whole program. Data is what I'm calling information from the prompts.
 const generateMD = (data) => {
+//To generate badges
   let licenseChoice = '';
 switch (data.license){
   case "IBM":
@@ -30,7 +30,7 @@ switch (data.license){
   break;
 }
 
-
+//The layout of the readme
 const output = `
 # ${data.title} ${licenseChoice}
 ### ${data.description}
@@ -73,9 +73,8 @@ console.log(output)
 return output;
 }
 
-// }
-// TODO: Create an array of questions for user input
-// const questions = [];
+
+// Questions asked via inquirer
 inquirer
   .prompt([
     {
@@ -151,34 +150,12 @@ inquirer
       },
   ])
   .then((data) => {
+    //Title of the new file
   const fileName = `${data.title}.md`;
-
+    // To be used in asyncWrite 
   const content = generateMD(data)
 
-  console.log(content)
-//       fs.writeFile(fileName, JSON.stringify(data, null, '\t'), (err) =>
-//     err ? console.log(err) : console.log('Readme complete')
-//   );
     asyncWrite(fileName, (content), (err) =>
       err ? console.log(err) : console.log('Success!')
       )
   })
-  // .then (() => {console.log('Success!')}).catch ((err)=> {console.log(err)});
-
-
-// // TODO: Create a function to write README file
-// function writeToFile(fileName, data) {
-// //     fs.writeFile(fileName, JSON.stringify(data, null, '\t'), (err) =>
-// //     err ? console.log(err) : console.log('Readme complete')
-// //   );
-// //   asyncWrite(fileName, generateMD(data), (err) =>
-// //   err ? console.log(err) : console.log('Success!')
-// //   )
-
-// }
-// writeToFile();
-// // TODO: Create a function to initialize app
-// function init() {}
-
-// // Function call to initialize app
-// init();
