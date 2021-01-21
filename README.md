@@ -6,6 +6,6 @@
 ## Usage
     Once everything is installed type 'node index.js' in the terminal. This will run a series of questions. Answer each question accordingly and once you have a readme will appear in the folder. This straightforward method allows anyone, regardless of their knowledge on markdowns to create a good standard file.
 ### Deployed Link
-[Deployed-Link]()
+[Deployed-Link](https://tasoko.github.io/README-Generator/)
 ## Test
-[Test-Video](../Assets/tester-readme.mov)
+[Test-Video](docs/Assets/tester-readme.mov)
