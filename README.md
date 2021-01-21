@@ -8,4 +8,4 @@
 ### Deployed Link
 [Deployed-Link](! https://tasoko.github.io/README-Generator/)
 ## Test
-[Test-Video](! /Assets/tester-readme.mov)
+[Test-Video](! docs/Assets/tester-readme.mov)
